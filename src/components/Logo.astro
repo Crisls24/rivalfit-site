@@ -1,0 +1,39 @@
+---
+interface Props {
+  /** Solo la marca sin tipografía */
+  markOnly?: boolean;
+  size?: number;
+}
+
+const { markOnly = false, size = 28 } = Astro.props as Props;
+---
+
+<span class="inline-flex items-center gap-2.5" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    class={"rounded-[6px] bg-volt dark:shadow-none"}
+    style={"padding:2px"}
+  >
+    <!-- Marca: rayo competencia / pulso de marcador -->
+    <path
+      d="M8 20h7l3-8 5 9h3"
+      stroke="#0b1200"
+      stroke-width="3.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="8" cy="20" r="2.4" fill="#0b1200" />
+    <circle cx="23" cy="21" r="2.4" fill="#0b1200" />
+  </svg>
+  {!markOnly && (
+    <span
+      class="font-display text-[1.35rem] font-bold lowercase leading-none tracking-tight"
+      style={"letter-spacing:-0.02em"}
+    >
+      <span class="text-bone">rival</span><span class="text-volt">fit</span>
+    </span>
+  )}
+</span>

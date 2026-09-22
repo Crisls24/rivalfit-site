@@ -1,0 +1,63 @@
+---
+const faqs = [
+  {
+    q: "¿Mi video de cámara se sube a algún servidor?",
+    a: "No. Toda la verificación corre on-device con ML Kit. Lo único que se sincroniza con el backend es el conteo verificado, el tipo de ejercicio, la duración y el timestamp. Tu cámara nunca graba hacia afuera.",
+  },
+  {
+    q: "¿Qué es una liga y cómo me uno?",
+    a: "Es un grupo de hasta 10 amigos que compite contra un ranking semanal. Quien crea la liga recibe un código y un link de invitación; con entrarlos, ya estás dentro. El reinicio es cada domingo a medianoche.",
+  },
+  {
+    q: "¿Qué necesito para instalar el APK?",
+    a: "Android 10 en adelante. Descargas el archivo oficial, permites “orígenes desconocidos” una sola vez desde Ajustes e instalas. Compara el SHA-256 de la página con el del archivo antes de abrirlo.",
+  },
+  {
+    q: "¿RivalFit es gratis?",
+    a: "La beta cerrada es gratis. El precio se definirá en el lanzamiento, y la lista de beta la coordina cada liga fundadora.",
+  },
+  {
+    q: "¿Qué ejercicios puedo contar?",
+    a: "Por cámara: lagartijas, sentadillas, crunches y dips, todos con verificación de ángulo y movimiento. Por smartwatch o el teléfono: correr, caminar y saltar cuerda (modo estimado si vas sin smartwatch).",
+  },
+  {
+    q: "¿Cuándo sale para iOS?",
+    a: "Sin fecha. Por ahora el enfoque es Android puro (sin licencia de Apple). El sitio se enfoca en la descarga de la APK.",
+  },
+] as const;
+---
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" class="border-t border-line bg-background">
+  <div class="container-site py-20 sm:py-28">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+        Preguntas frecuentes
+      </p>
+      <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        Duda resuelta antes de empezar.
+      </h2>
+    </div>
+
+    <div class="mt-12 max-w-3xl border-t border-line" data-reveal style="--reveal-delay:100ms">
+      {
+        faqs.map((faq) => (
+          <details class="group border-b border-line">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-5 pr-2 text-left">
+              <span class="font-semibold leading-snug text-bone transition-colors group-open:text-volt-ink">
+                {faq.q}
+              </span>
+              <span
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-[#faf9f5] font-mono text-sm text-bone-faint transition-transform group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <p class="pb-6 pr-10 text-sm leading-relaxed text-bone-muted">{faq.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

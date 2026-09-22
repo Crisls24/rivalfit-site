@@ -1,0 +1,110 @@
+---
+const pillars = [
+  {
+    tag: "ENTRENA",
+    title: "Completa tu entrenamiento y demuestra lo que puedes hacer.",
+  },
+  {
+    tag: "COMPITE",
+    title: "Crea una liga, invita a tus amigos y compitan semana a semana.",
+  },
+  {
+    tag: "SUBE",
+    title: "Cada sesión cuenta. Mejora tu rendimiento y escala posiciones.",
+  },
+] as const;
+
+const podium = [
+  { place: "1", name: "ANA", pts: 220, you: false },
+  { place: "2", name: "LUIS", pts: 195, you: false },
+  { place: "3", name: "TÚ", pts: 128, you: true },
+] as const;
+---
+
+<!-- ═══ RIVALFIT: EXPERIENCIA ═══ -->
+<section id="como-funciona" class="border-t border-line bg-[#f7f5f0]">
+  <div class="container-site py-16 sm:py-20">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-3 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+        RIVALFIT
+      </p>
+      <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        Entrena. Compite. Sube.
+      </h2>
+    </div>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {
+        pillars.map((pillar, i) => (
+          <div
+            data-reveal
+            style={`--reveal-delay:${i * 80}ms`}
+            class="group rounded-[1.5rem] border border-[#e5dfd4] bg-[#faf9f5] p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(17,19,17,0.04)]"
+          >
+            <div class="mb-6 flex items-center justify-between">
+              <span class="font-display text-5xl font-bold leading-none text-bone/80">0{i + 1}</span>
+              <span class="h-1.5 w-10 rounded-full bg-volt" aria-hidden="true"></span>
+            </div>
+            <p class="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+              {pillar.tag}
+            </p>
+            <h3 class="mt-4 font-display text-2xl font-semibold leading-tight text-bone">
+              {pillar.title}
+            </h3>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LIGA ═══ -->
+<section id="liga" class="border-t border-line bg-background">
+  <div class="container-site py-16 sm:py-20">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-3 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+        TU CLAN. TU COMPETENCIA.
+      </p>
+      <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        Crea una liga y conviértela en tu semana.
+      </h2>
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-bone-muted">
+        Crea tu liga, invita a tus amigos y compite durante la semana.
+      </p>
+    </div>
+
+    <div class="mt-10 max-w-2xl" data-reveal style="--reveal-delay:120ms">
+      <div class="rounded-[1.75rem] border border-[#e5dfd4] bg-[#faf9f5] p-5 sm:p-6 shadow-[0_18px_40px_rgba(17,19,17,0.04)]">
+        <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
+          <div>
+            <p class="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+              Liga · Los de siempre
+            </p>
+          </div>
+          <span class="rounded-full bg-volt/15 px-2.5 py-1 font-sans text-[0.7rem] font-semibold text-volt-ink">
+            4 / 10 competidores
+          </span>
+        </div>
+
+        <ul class="mt-4 space-y-3">
+          {
+            podium.map((row) => (
+              <li class={`flex items-center gap-3 rounded-2xl border px-3 py-3 ${row.you ? "border-[#bfdb6d] bg-[#edf8c5]/70 shadow-[inset_0_0_0_1px_rgba(164,238,0,0.08)]" : "border-[#e5dfd4] bg-white/40"}`}>
+                <span class={`flex h-8 w-8 items-center justify-center rounded-full font-sans text-xs font-bold ${row.you ? "bg-volt text-volt-ink" : "bg-[#eef1e8] text-bone-faint"}`}>
+                  {row.place}
+                </span>
+                <span class="min-w-0 flex-1 font-sans text-sm font-medium tracking-wide text-bone">
+                  {row.name}
+                  {row.you && <span class="ml-2 text-[0.65rem] uppercase tracking-[0.12em] text-bone-faint">tú</span>}
+                </span>
+                <span class="font-display text-xl font-semibold text-bone tabular-nums">
+                  {row.pts}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,7 +15,7 @@ dist/
 Thumbs.db
 
 # Copies de trabajo locales (assets duplicados en public/)
-Videos/
+/Videos/
 
 # APK firmado y checksums (se copian al despliegue desde public/apk/)
 public/apk/*.apk
