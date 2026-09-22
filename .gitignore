@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Copies de trabajo locales (assets duplicados en public/)
+Videos/
+
+# APK firmado y checksums (se copian al despliegue desde public/apk/)
+public/apk/*.apk
+public/apk/SHA256SUMS
+
+# Logs
+*.log
+npm-debug.log*
+
+# Secrets — nunca versionar
+*.jks
+key.properties
+**/key.properties
+
+# Project / IDE
+PRD.tex
+PROGRESS.md
+.opencode/
+opencode.json
