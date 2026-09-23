@@ -1,35 +1,35 @@
 ---
 const faqs = [
   {
-    q: "¿Mi video de cámara se sube a algún servidor?",
-    a: "No. Toda la verificación corre on-device con ML Kit. Lo único que se sincroniza con el backend es el conteo verificado, el tipo de ejercicio, la duración y el timestamp. Tu cámara nunca graba hacia afuera.",
+    q: "¿Mi cámara se usa para contar repeticiones?",
+    a: "Sí, pero solo en tu teléfono. RivalFit usa la cámara para reconocer el ejercicio y validar cada repetición. No necesitas subir tus videos para competir.",
   },
   {
     q: "¿Qué es una liga y cómo me uno?",
-    a: "Es un grupo de hasta 10 amigos que compite contra un ranking semanal. Quien crea la liga recibe un código y un link de invitación; con entrarlos, ya estás dentro. El reinicio es cada domingo a medianoche.",
+    a: "Una liga es una mini competencia entre amigos. Tú creas la liga, compartes el código o el enlace y cada semana se ordenan según quién entrenó más y mejor.",
   },
   {
-    q: "¿Qué necesito para instalar el APK?",
-    a: "Android 10 en adelante. Descargas el archivo oficial, permites “orígenes desconocidos” una sola vez desde Ajustes e instalas. Compara el SHA-256 de la página con el del archivo antes de abrirlo.",
+    q: "¿Cómo instalo la beta?",
+    a: "Descarga la APK desde este sitio, acepta instalar apps de fuentes desconocidas en Android y abre RivalFit. Enseguida puedes crear tu liga y empezar.",
   },
   {
     q: "¿RivalFit es gratis?",
-    a: "La beta cerrada es gratis. El precio se definirá en el lanzamiento, y la lista de beta la coordina cada liga fundadora.",
+    a: "La beta cerrada es gratis. Cuando salga la versión oficial, definiremos el precio según el plan y la comunidad que use la app.",
   },
   {
     q: "¿Qué ejercicios puedo contar?",
-    a: "Por cámara: lagartijas, sentadillas, crunches y dips, todos con verificación de ángulo y movimiento. Por smartwatch o el teléfono: correr, caminar y saltar cuerda (modo estimado si vas sin smartwatch).",
+    a: "La beta está pensada para ejercicios con movimiento claro, como sentadillas, lagartijas, abdominales y dips. También podemos ampliar opciones con el tiempo.",
   },
   {
-    q: "¿Cuándo sale para iOS?",
-    a: "Sin fecha. Por ahora el enfoque es Android puro (sin licencia de Apple). El sitio se enfoca en la descarga de la APK.",
+    q: "¿Cuándo llega a iOS?",
+    a: "Por ahora el foco está en Android para que la beta pueda llegar bien y competir sin fricción. Cuando estemos listos, te lo contaremos.",
   },
 ] as const;
 ---
 
 <!-- ═══ FAQ ═══ -->
 <section id="faq" class="border-t border-line bg-background">
-  <div class="container-site py-20 sm:py-28">
+  <div class="container-site pt-12 pb-16 sm:pt-14 sm:pb-20">
     <div class="max-w-2xl" data-reveal>
       <p class="mb-4 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
         Preguntas frecuentes
@@ -39,22 +39,28 @@ const faqs = [
       </h2>
     </div>
 
-    <div class="mt-12 max-w-3xl border-t border-line" data-reveal style="--reveal-delay:100ms">
+    <div
+      class="mt-10 max-w-4xl border-t border-line md:grid md:grid-cols-2 md:gap-x-12"
+      data-reveal
+      style="--reveal-delay:100ms"
+    >
       {
         faqs.map((faq) => (
           <details class="group border-b border-line">
-            <summary class="flex cursor-pointer items-center justify-between gap-6 py-5 pr-2 text-left">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-4 pr-2 text-left">
               <span class="font-semibold leading-snug text-bone transition-colors group-open:text-volt-ink">
                 {faq.q}
               </span>
               <span
-                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-[#faf9f5] font-mono text-sm text-bone-faint transition-transform group-open:rotate-45"
+                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-[#faf9f5] font-mono text-sm text-bone-faint transition-transform group-open:rotate-45 dark:bg-[#1B1C17]"
                 aria-hidden="true"
               >
                 +
               </span>
             </summary>
-            <p class="pb-6 pr-10 text-sm leading-relaxed text-bone-muted">{faq.a}</p>
+            <div class="rf-answer">
+              <p class="pb-5 pr-8 text-sm leading-relaxed text-bone-muted">{faq.a}</p>
+            </div>
           </details>
         ))
       }

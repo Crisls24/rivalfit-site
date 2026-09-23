@@ -9,12 +9,9 @@ export const SITE = {
 } as const;
 
 export const APP = {
-  version: "1.0.0",
   androidMin: "Android 10+",
-  apkFilename: "rivalfit-1.0.0.apk",
   apkLatestPath: "/apk/rivalfit-latest.apk",
   apkVersionedPath: "/apk/rivalfit-1.0.0.apk",
-  sha256File: "/apk/SHA256SUMS",
 } as const;
 
 export const CONTACT = {
@@ -24,7 +21,6 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#liga", label: "Liga" },
   { href: "#anti-trampas", label: "Anti-trampas" },
   { href: "#descargar", label: "Descargar" },
   { href: "#faq", label: "FAQ" },

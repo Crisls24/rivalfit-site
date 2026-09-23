@@ -1,45 +1,43 @@
 ---
 const checks = [
   {
-    title: "Valida cada repetición en tiempo real",
-    body: "La app revisa el rango de movimiento y marca solo lo que se hizo de verdad.",
+    title: "Valida al instante, mientras entrenas",
+    body: "La IA reconoce el movimiento en tu teléfono y marca cada repetición en el momento.",
   },
   {
-    title: "Mantiene la competencia justa",
-    body: "El objetivo es que el esfuerzo se mida con claridad, sin ruido ni dudas.",
+    title: "Solo suma lo correcto",
+    body: "La técnica importa: lo que se hace a medias, no cuenta. Compites con criterio.",
   },
   {
-    title: "Se queda en tu teléfono",
-    body: "La verificación está diseñada para correr localmente, sin depender de una nube.",
+    title: "Privado y sin rodeos",
+    body: "Todo corre en tu móvil: sin subir vídeos, sin esperar a nadie.",
   },
 ] as const;
 ---
 
-<!-- ═══ VALIDACIÓN / IA ═══ -->
-<section id="anti-trampas" class="border-t border-line bg-[#f7f5f0]">
-  <div class="container-site grid gap-10 py-16 sm:py-20 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
+<!-- ═══ VALIDACIÓN CON IA ═══ -->
+<section id="anti-trampas" class="border-t border-line bg-[#f7f5f0] dark:bg-[#171812]">
+  <div class="container-site grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
     <div data-reveal>
       <p class="mb-3 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
-        TU ENTRENAMIENTO CUENTA.
+        Inteligencia · Anti-trampas
       </p>
-      <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-        Si vas a competir, que sea de verdad.
+      <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+        Cada repetición, validada con IA.
       </h2>
-      <div class="mt-5 inline-flex items-center rounded-full border border-[#e5dfd4] bg-[#faf9f5] px-3 py-1">
-        <span class="font-sans text-[0.7rem] font-medium uppercase tracking-[0.16em] text-bone-faint">
-          Procesamiento local
-        </span>
-      </div>
-      <p class="mt-6 max-w-lg text-base leading-relaxed text-bone-muted">
-        RivalFit utiliza visión por computadora para validar tus ejercicios mientras entrenas y hacer que cada repetición cuente.
+      <p class="mt-4 max-w-lg text-base leading-relaxed text-bone-muted">
+        RivalFit usa visión por computadora para validar cada repetición, todo dentro de tu teléfono.
       </p>
 
-      <ul class="mt-8 space-y-5">
+      <ul class="mt-6 space-y-4">
         {
           checks.map((check, i) => (
             <li data-reveal style={`--reveal-delay:${i * 70}ms`} class="flex gap-4">
-              <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-volt/15 shadow-[0_0_12px_rgba(164,238,0,0.12)]">
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-volt" aria-hidden="true">
+              <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-volt/15 shadow-[0_0_12px_rgba(164,238,0,0.12)] dark:bg-volt">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-volt-ink dark:hidden" aria-hidden="true">
+                  <path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="hidden text-volt-ink dark:block" aria-hidden="true">
                   <path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
@@ -53,66 +51,30 @@ const checks = [
       </ul>
     </div>
 
-    <div data-reveal style="--reveal-delay:160ms">
-      <div class="video-shell overflow-hidden rounded-[1.8rem] border border-[#e5dfd4] bg-[#faf9f5] shadow-[0_20px_42px_rgba(17,19,17,0.05)]">
-        <div class="flex items-center justify-between border-b border-line bg-[#f7f5ef] px-5 py-3">
-          <span class="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
-            Revisión en tiempo real
-          </span>
-          <span class="rounded-full bg-volt/15 px-2.5 py-1 font-sans text-[0.65rem] font-bold uppercase tracking-[0.12em] text-volt-ink">
-            Local
-          </span>
-        </div>
-
+    <div data-reveal style="--reveal-delay:160ms" class="mx-auto w-full max-w-[23rem] lg:mt-0">
+      <div class="overflow-hidden rounded-[2rem] border border-[#e5dfd4] bg-[#faf9f5] shadow-[0_20px_42px_rgba(17,19,17,0.05)] dark:border-[#2B2C25] dark:bg-[#1B1C17]">
         <div class="relative aspect-[4/5] overflow-hidden bg-[#16161a]">
           <video
             class="absolute inset-0 h-full w-full object-cover object-center"
             src="/assets/videos/197848-905691449_medium.mp4"
-            poster="/assets/videos/workout-demo-poster.jpg"
             autoplay
             muted
             loop
             playsinline
             preload="metadata"
-            aria-label="Demostración de entrenamiento validado por RivalFit"
+            aria-label="Repetición validada con IA por RivalFit"
           ></video>
 
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111311]/35 via-transparent to-transparent"></div>
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111311]/45 via-transparent to-transparent"></div>
 
-          <div class="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-full border border-white/20 bg-black/25 px-4 py-2 backdrop-blur-sm">
-            <div>
-              <p class="font-sans text-[0.55rem] uppercase tracking-[0.18em] text-white/70">Repetición</p>
-              <p class="font-display text-lg font-semibold text-white">08 / 12</p>
-            </div>
-            <span class="rounded-full bg-volt px-2.5 py-1 font-sans text-[0.65rem] font-bold uppercase tracking-[0.12em] text-volt-ink">
-              Validada
-            </span>
-          </div>
+          <span class="rf-scan" aria-hidden="true"></span>
 
-          <div class="video-fallback absolute inset-0 flex items-center justify-center p-8">
-            <div class="h-full w-full rounded-[1rem] border border-[#e5dfd4] bg-[radial-gradient(circle_at_top,_rgba(164,238,0,0.14),_transparent_40%),linear-gradient(135deg,#f1efe8,#faf9f5)] shadow-inner" aria-hidden="true"></div>
+          <div class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-white/15 bg-[#111311]/30 px-3 py-1.5 backdrop-blur-sm">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-volt font-sans text-[0.7rem] font-bold text-volt-ink">✓</span>
+            <span class="font-sans text-[0.56rem] font-semibold uppercase tracking-[0.2em] text-white/85">Validada · IA</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  const video = document.querySelector<HTMLVideoElement>("video[src*='/assets/videos/']");
-  const fallback = document.querySelector<HTMLElement>(".video-fallback");
-  if (video && fallback) {
-    video.addEventListener("loadeddata", () => {
-      fallback.style.display = "none";
-    });
-    video.addEventListener("error", () => {
-      fallback.style.display = "flex";
-    });
-  }
-</script>
-
-<style>
-  .video-shell video {
-    background: #16161a;
-  }
-</style>

@@ -1,133 +1,104 @@
 ---
 import { APP } from "@/lib/site";
 
-const appBenefits = [
-  {
-    title: "Crea tu liga",
-    body: "Invita a tus amigos y convierte cada semana en una competencia real.",
-  },
-  {
-    title: "Sigue tu progreso",
-    body: "Cada repetición cuenta, cada sesión se siente más clara y más compartida.",
-  },
-  {
-    title: "Compite sin dudas",
-    body: "La validación te ayuda a medir realmente lo que haces, sin ruido ni trampa.",
-  },
+const steps = [
+  { n: "1", title: "Descarga la APK" },
+  { n: "2", title: "Permite fuentes desconocidas" },
+  { n: "3", title: "Abre RivalFit y empieza" },
+] as const;
+
+const perks = [
+  "Liga privada",
+  "Repeticiones validadas con IA",
+  "Ranking semanal",
+  "Beta gratis",
 ] as const;
 ---
 
 <!-- ═══ DESCARGA ═══ -->
-<section id="descargar" class="border-t border-line bg-[#f7f5f0]">
-  <div class="container-site py-24 sm:py-32">
-    <div class="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
-      <div data-reveal>
-        <p class="mb-4 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
-          Empieza a competir
-        </p>
-        <h2 class="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Descarga la beta de RivalFit para Android.
-        </h2>
-        <p class="mt-6 max-w-lg text-base leading-relaxed text-bone-muted">
-          Toma el control de tu entrenamiento, crea tu liga y compite con tus amigos desde el primer día.
-        </p>
+<section id="descargar" class="border-t border-line bg-[#f7f5f0] dark:bg-[#171812]">
+  <div class="container-site pt-16 pb-12 sm:pt-20 sm:pb-14">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <p class="mb-4 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
+        Empieza a competir
+      </p>
+      <h2 class="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        Descarga la beta de RivalFit para Android.
+      </h2>
+      <p class="mt-5 text-base leading-relaxed text-bone-muted sm:text-lg">
+        La beta de RivalFit para Android, lista en tres pasos.
+      </p>
 
+      <div class="mt-9">
         <a
           href={APP.apkLatestPath}
-          class="mt-8 inline-flex items-center gap-3 rounded-full bg-volt px-8 py-4 font-sans text-sm font-bold tracking-wide text-volt-ink shadow-[0_12px_30px_rgba(164,238,0,0.22)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(164,238,0,0.18)]"
+          data-magnet
+          class="rf-magnet relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-volt px-10 font-sans text-[0.95rem] font-bold tracking-wide text-volt-ink shadow-[0_12px_30px_rgba(164,238,0,0.22)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(164,238,0,0.18)]"
         >
-          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path
-              d="M8 2v9m0 0l-3.5-3.5M8 11l3.5-3.5M2.5 14h11"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          Descargar RivalFit
-        </a>
-
-        <p class="mt-4 font-sans text-[0.75rem] font-medium uppercase tracking-[0.14em] text-bone-faint">
-          Android · Beta
-        </p>
-
-        <details class="group mt-8 max-w-md border-t border-line">
-          <summary class="flex cursor-pointer items-center justify-between gap-6 py-4 pr-2 text-left">
-            <span class="font-sans text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-bone transition-colors group-open:text-volt-ink">
-              Información para instalación
-            </span>
-            <span
-              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-line bg-[#faf9f5] font-mono text-xs text-bone-faint transition-transform group-open:rotate-45"
-              aria-hidden="true"
-            >
-              +
-            </span>
-          </summary>
-          <div class="space-y-3 pb-5 pr-6 text-sm leading-relaxed text-bone-muted">
-            <p>
-              Archivo: <a href={APP.apkLatestPath} class="font-sans font-semibold text-bone underline decoration-volt/60 underline-offset-4 transition-colors hover:text-volt-ink">{APP.apkFilename}</a>
-            </p>
-            <p>Requisito: {APP.androidMin}</p>
-            <ol class="list-decimal space-y-1 pl-4">
-              <li>Descarga el archivo oficial desde este botón.</li>
-              <li>Permite “orígenes desconocidos” una sola vez desde Ajustes &gt; Seguridad.</li>
-              <li>Instala. Listo para competir.</li>
-            </ol>
-            <p class="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-bone-faint">
-              SHA-256: <span data-sha class="normal-case tracking-normal text-bone-muted">se publica junto con el lanzamiento.</span>
-            </p>
-          </div>
-        </details>
-      </div>
-
-      <div data-reveal style="--reveal-delay:120ms" class="rounded-[1.75rem] border border-[#e5dfd4] bg-[#faf9f5] p-6 sm:p-7">
-        <div class="flex items-center justify-between gap-3 border-b border-line pb-4">
-          <p class="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
-            ¿Qué te ofrece?
-          </p>
-          <span class="rounded-full bg-[#eef4d1] px-2.5 py-1 font-sans text-[0.7rem] font-semibold text-volt-ink">
-            RivalFit
+          <span class="rf-shine" aria-hidden="true"></span>
+          <span class="relative flex items-center gap-3">
+            <span class="rf-ripple pointer-events-none absolute -inset-3 rounded-full bg-volt/40"></span>
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" class="rf-arrow-bob" aria-hidden="true">
+              <path
+                d="M8 2v9m0 0l-3.5-3.5M8 11l3.5-3.5M2.5 14h11"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Descargar RivalFit
           </span>
-        </div>
-
-        <div class="mt-6 space-y-4">
-          {
-            appBenefits.map((benefit) => (
-              <div class="rounded-2xl border border-[#e5dfd4] bg-[#f7f5f0] p-4">
-                <p class="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bone-faint">
-                  {benefit.title}
-                </p>
-                <p class="mt-2 text-sm leading-relaxed text-bone-muted">
-                  {benefit.body}
-                </p>
-              </div>
-            ))
-          }
-        </div>
+        </a>
       </div>
     </div>
+
+    <ol data-draw class="mx-auto mt-14 flex w-full max-w-2xl items-start">
+      {steps.map((step, i) => (
+        <li data-reveal style={`--reveal-delay:${i * 70}ms`} class="flex min-w-0 flex-1 flex-col items-center">
+          <div class="flex w-full items-center">
+            <span
+              data-connector
+              style={`--rd:${i * 90}ms`}
+              class={`rf-connector h-0.5 flex-1 rounded-full ${i === 0 ? "bg-transparent" : "bg-[#D8D2C4] dark:bg-[#2C2D26]"}`}
+              aria-hidden="true"
+            ></span>
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-volt font-mono text-base font-bold text-volt-ink shadow-[0_6px_14px_rgba(164,238,0,0.35)]"
+            >
+              {step.n}
+            </span>
+            <span
+              data-connector
+              style={`--rd:${(steps.length - 1 - i) * 90}ms`}
+              class={`rf-connector h-0.5 flex-1 rounded-full ${i === steps.length - 1 ? "bg-transparent" : "bg-[#D8D2C4] dark:bg-[#2C2D26]"}`}
+              aria-hidden="true"
+            ></span>
+          </div>
+          <p class="mt-3.5 max-w-[9.5rem] text-center text-[0.82rem] font-semibold leading-snug text-bone">
+            {step.title}
+          </p>
+        </li>
+      ))}
+    </ol>
+
+    <ul
+      data-reveal
+      style="--reveal-delay:240ms"
+      class="mt-12 flex flex-wrap items-center justify-center gap-2"
+    >
+      {
+        perks.map((perk) => (
+          <li class="flex items-center gap-2 rounded-full border border-[#dfe5d3] bg-[#f8f6f1] px-3.5 py-1.5 dark:border-[#2B2C25] dark:bg-[#1B1C17]">
+            <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-volt">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none" class="text-volt-ink" aria-hidden="true">
+                <path d="M8 1.5l5 2v4.2c0 3-2.1 5.3-5 6.8-2.9-1.5-5-3.8-5-6.8V3.5l5-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="text-[0.78rem] font-medium tracking-wide text-bone-muted">{perk}</span>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
-
-<script>
-  const shaEl = document.querySelector("[data-sha]");
-  const targetName = "rivalfit-latest.apk";
-  if (shaEl) {
-    fetch("/apk/SHA256SUMS")
-      .then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
-      .then((text) => {
-        const line = text
-          .split(/\r?\n/)
-          .map((l) => l.trim())
-          .find((l) => l.endsWith(targetName) || l.includes(" " + targetName));
-        if (line) {
-          const hash = line.split(/\s+/)[0];
-          if (hash && /^[a-f0-9]{64}$/i.test(hash)) {
-            shaEl.textContent = hash;
-          }
-        }
-      })
-      .catch(() => {});
-  }
-</script>
