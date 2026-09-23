@@ -31,6 +31,7 @@ const perks = [
 
       <div class="mt-9">
         <a
+          id="apk-cta"
           href={APP.apkLatestPath}
           data-magnet
           class="rf-magnet relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-volt px-10 font-sans text-[0.95rem] font-bold tracking-wide text-volt-ink shadow-[0_12px_30px_rgba(164,238,0,0.22)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(164,238,0,0.18)]"
@@ -50,6 +51,11 @@ const perks = [
             Descargar RivalFit
           </span>
         </a>
+        <p
+          id="apk-meta"
+          aria-live="polite"
+          class="mt-4 break-all font-mono text-[0.72rem] leading-relaxed text-bone-faint"
+        ></p>
       </div>
     </div>
 
@@ -102,3 +108,7 @@ const perks = [
     </ul>
   </div>
 </section>
+
+<script>
+  import "@/scripts/download";
+</script>
