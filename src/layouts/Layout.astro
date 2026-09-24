@@ -5,7 +5,7 @@ import "@fontsource-variable/jetbrains-mono";
 import "@/styles/global.css";
 import Nav from "@/components/Nav.astro";
 import Footer from "@/components/Footer.astro";
-import { SITE } from "@/lib/site";
+import { SITE, APP } from "@/lib/site";
 
 interface Props {
   title?: string;
@@ -15,6 +15,29 @@ interface Props {
 const { title, description = SITE.description } = Astro.props as Props;
 const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
 const ogImage = `${SITE.url}/og.png`;
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: SITE.name,
+      url: SITE.url,
+      description: SITE.description,
+      inLanguage: SITE.locale,
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: SITE.name,
+      url: SITE.url,
+      description: SITE.description,
+      applicationCategory: "HealthAndFitnessApplication",
+      operatingSystem: "Android",
+      downloadUrl: `${SITE.url}${APP.apkLatestPath}`,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    },
+  ],
+} as const;
 ---
 
 <!doctype html>
@@ -57,6 +80,8 @@ const ogImage = `${SITE.url}/og.png`;
 
     <link rel="canonical" href={SITE.url} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
   </head>
   <body class="min-h-screen bg-background text-foreground antialiased">
     <a
