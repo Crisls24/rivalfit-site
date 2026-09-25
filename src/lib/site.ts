@@ -14,11 +14,6 @@ export const APP = {
   apkVersionedPath: "/apk/rivalfit-1.0.0.apk",
 } as const;
 
-export const CONTACT = {
-  email: "hola@rivalfit.iscx.site",
-  emailHref: "mailto:hola@rivalfit.iscx.site",
-} as const;
-
 export const NAV_LINKS = [
   { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#anti-trampas", label: "Anti-trampas" },

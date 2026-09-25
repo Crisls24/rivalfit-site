@@ -1,6 +1,6 @@
 ---
 import Logo from "@/components/Logo.astro";
-import { CONTACT, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 const links = [
   { href: "#como-funciona", label: "Cómo funciona" },
@@ -39,12 +39,6 @@ const links = [
       <p class="font-mono text-[0.64rem] uppercase tracking-[0.16em] text-bone-muted">
         © 2026 {SITE.name} · {SITE.url}
       </p>
-      <a
-        href={CONTACT.emailHref}
-        class="font-mono text-[0.64rem] uppercase tracking-[0.16em] text-bone-muted transition-colors hover:text-volt-ink dark:hover:text-volt"
-      >
-        {CONTACT.email}
-      </a>
     </div>
   </div>
 </footer>

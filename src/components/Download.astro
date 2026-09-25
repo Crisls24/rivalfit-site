@@ -33,29 +33,27 @@ const perks = [
         <a
           id="apk-cta"
           href={APP.apkLatestPath}
-          data-magnet
-          class="rf-magnet relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-volt px-10 font-sans text-[0.95rem] font-bold tracking-wide text-volt-ink shadow-[0_12px_30px_rgba(164,238,0,0.22)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(164,238,0,0.18)]"
+          class="rf-magnet relative inline-block"
         >
-          <span class="rf-shine" aria-hidden="true"></span>
-          <span class="relative flex items-center gap-3">
-            <span class="rf-ripple pointer-events-none absolute -inset-3 rounded-full bg-volt/40"></span>
-            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" class="rf-arrow-bob" aria-hidden="true">
-              <path
-                d="M8 2v9m0 0l-3.5-3.5M8 11l3.5-3.5M2.5 14h11"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Descargar RivalFit
+          <span
+            class="rf-lift relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-volt px-10 font-sans text-[0.95rem] font-bold tracking-wide text-volt-ink shadow-[0_12px_30px_rgba(164,238,0,0.22)]"
+          >
+            <span class="rf-shine" aria-hidden="true"></span>
+            <span class="relative flex items-center gap-3">
+              <span class="rf-ripple pointer-events-none absolute -inset-3 rounded-full bg-volt/40"></span>
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none" class="rf-arrow-bob" aria-hidden="true">
+                <path
+                  d="M8 2v9m0 0l-3.5-3.5M8 11l3.5-3.5M2.5 14h11"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Descargar RivalFit
+            </span>
           </span>
         </a>
-        <p
-          id="apk-meta"
-          aria-live="polite"
-          class="mt-4 break-all font-mono text-[0.72rem] leading-relaxed text-bone-faint"
-        ></p>
       </div>
     </div>
 
@@ -108,7 +106,3 @@ const perks = [
     </ul>
   </div>
 </section>
-
-<script>
-  import "@/scripts/download";
-</script>

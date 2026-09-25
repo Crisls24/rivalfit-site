@@ -53,31 +53,36 @@ function initCursorGlow() {
   let ty = window.innerHeight / 2;
   let cx = tx;
   let cy = ty;
-  let visible = false;
+  let running = false;
+
+  const loop = () => {
+    cx = lerp(cx, tx, 0.13);
+    cy = lerp(cy, ty, 0.13);
+    glow.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+    if (running) window.requestAnimationFrame(loop);
+  };
+  const start = () => {
+    if (running) return;
+    running = true;
+    glow.style.opacity = "1";
+    window.requestAnimationFrame(loop);
+  };
+  const stop = () => {
+    running = false;
+  };
 
   const onMove = (e: PointerEvent) => {
     tx = e.clientX;
     ty = e.clientY;
-    if (!visible) {
-      visible = true;
-      glow.style.opacity = "1";
-    }
+    start();
   };
   const onLeave = () => {
-    visible = false;
+    stop();
     glow.style.opacity = "0";
-  };
-
-  const tick = () => {
-    cx = lerp(cx, tx, 0.13);
-    cy = lerp(cy, ty, 0.13);
-    glow.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
-    window.requestAnimationFrame(tick);
   };
 
   window.addEventListener("pointermove", onMove, { passive: true });
   document.documentElement.addEventListener("pointerleave", onLeave);
-  window.requestAnimationFrame(tick);
 }
 
 function initSpotlightCards() {
